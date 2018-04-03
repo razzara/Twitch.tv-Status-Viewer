@@ -1,0 +1,77 @@
+:root {
+  --twitchpurple: #4b367c;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+#box {
+  margin: 50px auto;
+  width: 40%;
+  min-height: 30px;
+  border: solid 1px;
+  border-radius: 4px;
+}
+
+.top-row {
+  font-size: 35px;
+  color: var(--twitchpurple);
+  font-weight: bold;
+}
+
+.form-control{
+  vertical-align: middle;
+  margin: 5% auto;
+}
+
+.add-row {
+  vertical-align: middle;
+  margin: 1% auto;
+}
+
+.btn-row {
+  height:8%;
+}
+
+.tw-svg__asset--logotwitch {
+  fill: var(--twitchpurple);
+  height: 55px;
+}
+
+.btn {
+  border-radius: 0px;
+  border: 0px;
+}
+
+button:focus {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.row {
+  border: var(--dark) solid 1px;
+  height: 10%;
+  width: 100%;
+  margin: 0 auto;
+  line-height: 50px;
+}
+
+.col-7 {
+  text-align: left;
+}
+
+.col-4 {
+  padding: 0;
+}
+
+.online {
+  background-color: var(--twitchpurple);
+  color: var(--light);
+}
+
+.offline {
+  background-color: var(--white);
+  color: var(--secondary);
+}
