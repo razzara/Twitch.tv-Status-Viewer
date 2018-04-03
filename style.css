@@ -5,6 +5,7 @@
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
+  font-weight: bold;
 }
 
 #box {
@@ -26,6 +27,11 @@ body {
   margin: 5% auto;
 }
 
+.form-control:focus {
+  background-color: #f2e4ff;
+  outline: 0 none;
+}
+
 .add-row {
   vertical-align: middle;
   margin: 1% auto;
@@ -45,7 +51,7 @@ body {
   border: 0px;
 }
 
-button:focus {
+button:focus, button:active, button::selection {
   background-color: var(--dark);
   color: var(--light);
 }
@@ -58,20 +64,35 @@ button:focus {
   line-height: 50px;
 }
 
-.col-7 {
+.col-4 {
   text-align: left;
 }
 
-.col-4 {
-  padding: 0;
+.col-8 {
+  padding: 0 10px 0 0;
+  text-align: right;
 }
 
-.online {
+a:hover, a:active {
+  color: var(--dark);
+  text-decoration: none;
+
+}
+
+.online, .online a {
   background-color: var(--twitchpurple);
   color: var(--light);
 }
 
-.offline {
+.online a:hover {
+  color: var(--secondary);
+}
+
+.offline, .offline a {
   background-color: var(--white);
   color: var(--secondary);
+}
+
+.offline a:hover {
+  color: var(--dark);
 }

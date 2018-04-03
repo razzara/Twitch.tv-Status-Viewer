@@ -2,7 +2,7 @@
 $( document ).ready(function(){
 
 
-    $(".col-7").each(function() {
+    $(".col-4").each(function() {
       var user = $(this).text();
 
       $.ajax({
@@ -14,13 +14,13 @@ $( document ).ready(function(){
        success: function(data) {
          if(data.stream === null) {
           var parentDiv = document.getElementById(user);
-          var statusCol = parentDiv.getElementsByClassName("col-3");
+          var statusCol = parentDiv.getElementsByClassName("col-8");
           $(statusCol).text("Offline");
           $(parentDiv).removeClass().addClass("row offline");
         } else {
             var parentDiv = document.getElementById(user);
-            var statusCol = parentDiv.getElementsByClassName("col-3");
-            $(statusCol).text("Online");
+            var statusCol = parentDiv.getElementsByClassName("col-8");
+            $(statusCol).html('Online: <i>'+data.stream.game+'</i>');
             $(parentDiv).removeClass().addClass("row online");
           }
        }
@@ -45,8 +45,8 @@ $( document ).ready(function(){
 
     $(".add").click(function() {
       var username = $("#input-text").val();
-      $("#box").append('<div class="row" id='+username+'><div class="col-2"></div><div class="col-7">'+username+'</div><div class="col-3"></div></div>');
-      
+      $("#box").append('<div class="row" id='+username+'><div class="col-4"><a href="http://www.twitch.tv/'+username+'" target="_blank">'+username+'</a></div><div class="col-8"></div></div>');
+
       $.ajax({
        type: 'GET',
        url: 'https://api.twitch.tv/kraken/streams/'+username,
@@ -56,12 +56,12 @@ $( document ).ready(function(){
        success: function(data) {
          if(data.stream === null) {
           var parentDiv = document.getElementById(username);
-          var statusCol = parentDiv.getElementsByClassName("col-3");
+          var statusCol = parentDiv.getElementsByClassName("col-8");
           $(statusCol).text("Offline");
           $(parentDiv).removeClass().addClass("row offline");
         } else {
             var parentDiv = document.getElementById(username);
-            var statusCol = parentDiv.getElementsByClassName("col-3");
+            var statusCol = parentDiv.getElementsByClassName("col-8");
             $(statusCol).text("Online");
             $(parentDiv).removeClass().addClass("row online");
           }
