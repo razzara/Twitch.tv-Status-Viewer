@@ -1,30 +1,35 @@
 
-$( document ).ready(function(){
+$(document).ready(function(){
 
-
-    $(".col-4").each(function() {
-      var user = $(this).text();
-
+    function ajaxRequest(user) {
       $.ajax({
        type: 'GET',
        url: 'https://api.twitch.tv/kraken/streams/'+user,
        headers: {
          'Client-ID': '6wmnq80xhw5wstv13alroib7dhohro'
        },
-       success: function(data) {
-         if(data.stream === null) {
+        success: function(data) {
           var parentDiv = document.getElementById(user);
-          var statusCol = parentDiv.getElementsByClassName("col-8");
-          $(statusCol).text("Offline");
-          $(parentDiv).removeClass().addClass("row offline");
-        } else {
-            var parentDiv = document.getElementById(user);
-            var statusCol = parentDiv.getElementsByClassName("col-8");
-            $(statusCol).html('Online: <i>'+data.stream.game+'</i>');
-            $(parentDiv).removeClass().addClass("row online");
-          }
-       }
-     });
+          var statusCol = parentDiv.getElementsByClassName("grid-status");
+          if(data.stream === null) {
+           $(statusCol).text("Offline");
+           $(parentDiv).removeClass().addClass("grid-content offline");
+          } else {
+             $(statusCol).html('Online: <i>'+data.stream.game+'</i>');
+             $(parentDiv).removeClass().addClass("grid-content online");
+            }
+        }
+      })
+    }
+
+    $(".grid-username").each(function() {
+    ajaxRequest($(this).text());
+    });
+
+    $(".add").click(function() {
+      var user = $("#input-text").val();
+      $(".container").append('<div class="grid-content" id='+user+'><div class="grid-username"><a href="http://www.twitch.tv/'+user+'" target="_blank">'+user+'</a></div><div class="grid-status"></div></div>');
+        ajaxRequest(user);
     });
 
     $("#online").click(function(){
@@ -43,30 +48,9 @@ $( document ).ready(function(){
     });
 
 
-    $(".add").click(function() {
-      var username = $("#input-text").val();
-      $("#box").append('<div class="row" id='+username+'><div class="col-4"><a href="http://www.twitch.tv/'+username+'" target="_blank">'+username+'</a></div><div class="col-8"></div></div>');
-
-      $.ajax({
-       type: 'GET',
-       url: 'https://api.twitch.tv/kraken/streams/'+username,
-       headers: {
-         'Client-ID': '6wmnq80xhw5wstv13alroib7dhohro'
-       },
-       success: function(data) {
-         if(data.stream === null) {
-          var parentDiv = document.getElementById(username);
-          var statusCol = parentDiv.getElementsByClassName("col-8");
-          $(statusCol).text("Offline");
-          $(parentDiv).removeClass().addClass("row offline");
-        } else {
-            var parentDiv = document.getElementById(username);
-            var statusCol = parentDiv.getElementsByClassName("col-8");
-            $(statusCol).text("Online");
-            $(parentDiv).removeClass().addClass("row online");
-          }
-       }
-     });
-    });
+    $('.add').prop('disabled',true);
+    $('#input-text').keyup(function(){
+      $('.add').prop('disabled', this.value == "" ? true : false);
+    })
 
 });
