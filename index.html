@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html>
 <head>
   <title>Twitch Viewer</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -7,61 +7,58 @@
 <head>
 <body>
 
+  <div class="container">
 
-
-  <div id="box">
-    <div class="row top-row">
-      <div class="col-12"><svg class="tw-svg__asset tw-svg__asset--logotwitch tw-svg__asset--inherit align-middle" width="94px" height="32px" version="1.1" viewBox="0 0 94 32" x="0px" y="0px"><path clip-rule="evenodd" d="M88,5h-6V0h-9l-6,5h-5.5L59,7.5V5h-5V0H36v5H16l-5-5H0v22l5,5.25L14,32h6v-1.5l3,1.5h12l2-3l1,3h7v-3l3,3h8l0.5-3l2.5,3h10l3-3v3h4l3-3v3h7l7-6V10L88,5z M13,13H8v6h5v6H6l-4-4V2h6v5h5V13z M36,21.5L32.5,25H15V7h6v12h2V7h6v12h2V7h5V21.5z M44,25h-6V7h6V25z M44,5h-6V2h6V5z M57,13h-5v6h5v6h-7l-4-4V2h6v5h5V13z M72,13h-7v6h7v6h-9l-4-4V11l4-4h9V13z M91,25h-6V13h-5v12h-6V2h6v5h7l4,4V25z" fill-rule="evenodd"></path></svg>
-      <span class="align-bottom">status viewer</span></div>
-    </div>
-
-    <div class="row add-row">
-      <div class="col-4 add-row">Add New User:</div>
-      <div class="col">
-        <input type="text" id="input-text" class="form-control" placeholder="User Name">
-      </div>
-      <div class="col-auto add-row">
-        <button type="submit" class="btn btn-dark add">Add</button>
-      </div>
+    <div class="grid-top">
+      <svg class="tw-svg__asset tw-svg__asset--logotwitch tw-svg__asset--inherit align-middle" width="94px" height="32px" version="1.1" viewBox="0 0 94 32" x="0px" y="0px"><path clip-rule="evenodd" d="M88,5h-6V0h-9l-6,5h-5.5L59,7.5V5h-5V0H36v5H16l-5-5H0v22l5,5.25L14,32h6v-1.5l3,1.5h12l2-3l1,3h7v-3l3,3h8l0.5-3l2.5,3h10l3-3v3h4l3-3v3h7l7-6V10L88,5z M13,13H8v6h5v6H6l-4-4V2h6v5h5V13z M36,21.5L32.5,25H15V7h6v12h2V7h6v12h2V7h5V21.5z M44,25h-6V7h6V25z M44,5h-6V2h6V5z M57,13h-5v6h5v6h-7l-4-4V2h6v5h5V13z M72,13h-7v6h7v6h-9l-4-4V11l4-4h9V13z M91,25h-6V13h-5v12h-6V2h6v5h7l4,4V25z" fill-rule="evenodd"></path></svg>
+      <span class="align-bottom">status viewer</span>
     </div>
 
-    <div class="row btn-row">
-      <div class="col-4"><button type="button" class="btn btn-outline-dark btn-block" id="all">All</button></div>
-      <div class="col-4"><button type="button" class="btn btn-outline-dark btn-block" id="online">Online</button></div>
-      <div class="col-4"><button type="button" class="btn btn-outline-dark btn-block" id="offline">Offline</button></div>
+    <div class="grid-add">
+      <span>Add New User:</span>
+      <input type="text" id="input-text" class="form-control" placeholder="User Name">
+      <button type="submit" class="btn btn-dark add">Add</button>
     </div>
 
-    <div class="row" id="freecodecamp">
-      <div class="col-4"><a href="http://www.twitch.tv/freecodecamp" target="_blank">freecodecamp</a></div>
-      <div class="col-8"></div>
+    <div class="grid-buttons">
+      <button type="button" class="btn btn-outline-dark btn-block" id="all">All</button>
+      <button type="button" class="btn btn-outline-dark btn-block" id="online">Online</button>
+      <button type="button" class="btn btn-outline-dark btn-block" id="offline">Offline</button>
     </div>
-    <div class="row" id="streamerhouse">
-      <div class="col-4"><a href="http://www.twitch.tv/streamerhouse" target="_blank">streamerhouse</a></div>
-      <div class="col-8"></div>
+
+    <div class="grid-content" id="freecodecamp">
+      <div class="grid-username"><a href="http://www.twitch.tv/freecodecamp" target="_blank">freecodecamp</a></div>
+      <div class="grid-status"></div>
     </div>
-    <div class="row" id="storbeck">
-      <div class="col-4"><a href="http://www.twitch.tv/storbeck" target="_blank">storbeck</a></div>
-      <div class="col-8"></div>
+    <div class="grid-content" id="streamerhouse">
+      <div class="grid-username"><a href="http://www.twitch.tv/streamerhouse" target="_blank">streamerhouse</a></div>
+      <div class="grid-status"></div>
     </div>
-    <div class="row" id="habathcx">
-      <div class="col-4"><a href="http://www.twitch.tv/habathcx" target="_blank">habathcx</a></div>
-      <div class="col-8"></div>
+    <div class="grid-content" id="storbeck">
+      <div class="grid-username"><a href="http://www.twitch.tv/storbeck" target="_blank">storbeck</a></div>
+      <div class="grid-status"></div>
     </div>
-    <div class="row" id="gubbatv">
-      <div class="col-4"><a href="http://www.twitch.tv/gubbatv" target="_blank">gubbatv</a></div>
-      <div class="col-8"></div>
+    <div class="grid-content" id="habathcx">
+      <div class="grid-username"><a href="http://www.twitch.tv/habathcx" target="_blank">habathcx</a></div>
+      <div class="grid-status"></div>
     </div>
-    <div class="row" id="RobotCaleb">
-      <div class="col-4"><a href="http://www.twitch.tv/RobotCaleb" target="_blank">RobotCaleb</a></div>
-      <div class="col-8"></div>
+    <div class="grid-content" id="gubbatv">
+      <div class="grid-username"><a href="http://www.twitch.tv/gubbatv" target="_blank">gubbatv</a></div>
+      <div class="grid-status"></div>
     </div>
-    <div class="row" id="cretetion">
-      <div class="col-4"><a href="http://www.twitch.tv/cretetion" target="_blank">cretetion</a></div>
-      <div class="col-8"></div>
+    <div class="grid-content" id="RobotCaleb">
+      <div class="grid-username"><a href="http://www.twitch.tv/RobotCaleb" target="_blank">RobotCaleb</a></div>
+      <div class="grid-status"></div>
     </div>
-  </div>
+    <div class="grid-content" id="cretetion">
+      <div class="grid-username"><a href="http://www.twitch.tv/cretetion" target="_blank">cretetion</a></div>
+      <div class="grid-status"></div>
+    </div>
+</div>
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="script.js"></script>
 </body>
+</html>
